@@ -1,0 +1,20 @@
+{
+  "name": "sebeca-lambda",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint .",
+    "test": "./node_modules/.bin/jasmine-node test/**/*.spec.js"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jasmine-node": "^2.0.1"
+  },
+  "dependencies": {
+    "jsonschema": "^1.2.4",
+    "my_db": "file:./src/common/my_db",
+    "my_util": "file:./src/common/my_util",
+    "sinon": "^6.3.5"
+  }
+}

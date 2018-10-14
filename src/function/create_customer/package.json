@@ -1,0 +1,17 @@
+{
+  "name": "create_customer",
+  "version": "1.0.0",
+  "description": "Create Customer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {},
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "my_db": "file:../../common/my_db",
+    "my_util": "file:../../common/my_util"
+  }
+}
