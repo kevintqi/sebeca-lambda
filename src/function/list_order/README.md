@@ -12,7 +12,7 @@
 
 ## Sample REST Request
 ### URL
-GET /order/eUBhLmNvbQ==
+GET /order/{customerId}
 ```
 https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```
