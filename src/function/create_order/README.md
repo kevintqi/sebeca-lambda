@@ -7,7 +7,7 @@
     "user-pool-id": "UserPoolIdVal",
     "authorization": "AuthorizationVal"
   },
-  "body": "{\"customerId\":\"y@a.com\",\"event\":{\"name\":\"LA Jazz Festival\",\"info\":\"2017 LA Jazz Festival at Hollywood Bowl\",\"location\":{  \"street\":\"123 Main St\",\"city\":\"Torrance\",\"zipCode\":\"90501\", \"state\":\"CA\"},\"schedule\":{  \"startDate\":\"none\", \"endDate\": \"none\"}},\"materials\": [{\"category\": \"Chair\",\"style\": \"Delux\",\"amount\": 200,\"promotionCode\": \"d5\"},{ \"category\": \"Tent\",\"style\": \"Delux\", \"amount\": 50 }]}"
+  "body": "{\"customerId\":\"eUBjLmNvbQ==\",\"event\":{\"name\":\"LA Jazz Festival\",\"info\":\"2017 LA Jazz Festival at Hollywood Bowl\",\"location\":{ \"street\":\"123 Main St\",\"city\":\"Torrance\",\"zipCode\":\"90501\", \"state\":\"CA\"},\"schedule\":{  \"startDate\":\"none\", \"endDate\": \"none\"}}, \"items\":[{\"category\": \"Chair\",\"itemId\": \"eWRhpRV\",\"quantity\": 200,\"image\": \"chairs\/eWRhpRV.jpg\",\"price\":3.15, \"name\":\"Imperial\", \"desc\": \"brown top, folding legs\"}]}"
 }
 ```
 
@@ -26,9 +26,14 @@ authorization:AuthorizationVal
 ```
 { 
   "customerId":"eUBhLmNvbQ==",
-  "event":{  
+  "event": {  
     "name":"LA Jazz Festival",
     "info":"2017 LA Jazz Festival at Hollywood Bowl",
+    "contact" : {  
+      "name":"John Doe",
+      "phoneNumber":"1234567",
+      "email":"y@a.com"  
+    },
     "location":{  
       "street":"123 Main St",
       "city":"Torrance",
@@ -40,19 +45,20 @@ authorization:AuthorizationVal
       "endDate": "none"
     }
   },
-  "materials": [
+  "items": [
     {
       "category": "Chair",
-      "style": "Delux",
-      "amount": 200,
-      "promotionCode": "d5"
-    },
-    {
-      "category": "Tent",
-      "style": "Delux",
-      "amount": 50
+      "name": "Imperial",
+      "itemId": "uuid",
+      "quantity": 200,
+      "price": 3.45,
+      "image":"chairs/itemId.jpg",
+      "desc": "brown top, folding legs"
     }
-  ]
+  ],
+  "totalPrice": 690.00,
+  "totalQuantity": 200,
+  "useLastJob": false
 }
 ```
 
@@ -61,7 +67,7 @@ authorization:AuthorizationVal
 ```
 {
   "userPoolId": "UserPoolIdVal",
-  "orderId": "c81a6300-cf3c-11e8-b5c2-db55c339a89a"
+  "orderId": 1539646993405
 }
 ```
 ## Status Code

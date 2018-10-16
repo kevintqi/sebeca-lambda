@@ -3,7 +3,7 @@
   "title": "Order",
   "description": "An order created based on request",
   "type": "object",
-  "required": ["customerId","event", "materials"],
+  "required": ["customerId", "event", "items"],
   "properties": {
     "customerId": {
       "type": "string"
@@ -18,6 +18,22 @@
         },
         "info": {
           "type": "string"
+        },
+        "contact" : {
+          "description": "Contact info",
+          "type": "object",
+          "required": ["name", "phoneNumber", "email"],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "tyep": "string"
+            }, 
+            "phoneNumber": {
+              "type": "string"
+            }
+          }
         },
         "location": {
           "description": "Location where the event is conducted",
@@ -53,27 +69,45 @@
         }
       }
     },
-    "materials": {
+    "items": {
       "description": "Materials needed for the event",
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["category", "style", "amount"],
+        "required": ["category", "name", "itemId", "quantity", "image", "price", "desc"],
         "properties": {
           "category" : {
             "type":"string"
           },
-          "style": {
+          "name": {
             "type":"string"
           },
-          "amount":{
+          "itemId": {
+            "type":"string"
+          },
+          "quantity":{
             "type":"integer"
           },
-          "promotionCode": {
+          "image": {
             "type":"string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "desc": {
+            "type": "string"
           }
         }
       }
+    },
+    "totalPrice": {
+      "type": "number"
+    },
+    "totalQuantity" : {
+      "type": "integer"
+    },
+    "useLastJob" : {
+      "type": "boolean"
     }
   }
 }

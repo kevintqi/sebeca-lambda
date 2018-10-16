@@ -25,11 +25,12 @@ class CustomerCreator {
   _createCustomer(inputData) {
     const item = new Item(tableParams.TableName);
     inputData.data.userPoolId = inputData.headers['user-pool-id'];
+    inputData.data.customerId = btoa(inputData.data.email);
     item.addData(inputData.data);
     return this.client.put(item).then(result => {
       return {
         userPoolId: result.Item.userPoolId,
-        customerId: btoa(result.Item.email)
+        customerId: result.Item.customerId
       };
     });
   }

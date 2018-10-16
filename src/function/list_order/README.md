@@ -12,7 +12,7 @@
 
 ## Sample REST Request
 ### URL
-GET /custome/eUBhLmNvbQ==
+GET /order/eUBhLmNvbQ==
 ```
 https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```
@@ -26,22 +26,8 @@ authorization:AuthorizationVal
 ### Body
 ```
 {
-  "customers": [
+  "orders": [
     {
-      "createdAt": 1539472059696,
-      "materials": [
-        {
-          "promotionCode": "d5",
-          "style": "Delux",
-          "amount": 200,
-          "category": "Chair"
-        },
-        {
-          "category": "Tent",
-          "style": "Delux",
-          "amount": 50
-        }
-      ],
       "event": {
         "name": "LA Jazz Festival",
         "schedule": {
@@ -54,11 +40,31 @@ authorization:AuthorizationVal
           "city": "Torrance",
           "street": "123 Main St"
         },
-        "info": "2017 LA Jazz Festival at Hollywood Bowl"
+        "info": "2017 LA Jazz Festival at Hollywood Bowl",
+        "contact": {
+          "name": "John Doe",
+          "email": "y@a.com",
+          "phoneNumber": "1234567"
+        }
       },
-      "orderId": "c81a6300-cf3c-11e8-b5c2-db55c339a89a",
-      "customerId": "eUBhLmNvbQ==",
-      "userPoolId": "UserPoolIdVal"
+      "totalPrice": 690,
+      "useLastJob": false,
+      "orderId": 1539647202196,
+      "totalQuantity": 200,
+      "userPoolId": "UserPoolIdVal",
+      "createdAt": 1539647202196,
+      "items": [
+        {
+          "itemId": "uuid",
+          "image": "chairs/itemId.jpg",
+          "quantity": 200,
+          "price": 3.45,
+          "name": "Imperial",
+          "category": "Chair",
+          "desc": "brown top, folding legs"
+        }
+      ],
+      "customerId": "eUBhLmNvbQ=="
     }
   ]
 }

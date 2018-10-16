@@ -13,7 +13,7 @@ class OrderLister {
         .addKeyConditionExpression("customerId = :c")
         .withExpressionValues({ ":c": eventHandler.path.customerId});
     return this.client.query(item).then(data => {
-      return { customers: data.Items };
+      return { orders: data.Items };
     });
   }
 }

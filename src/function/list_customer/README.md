@@ -27,24 +27,26 @@ authorization:AuthorizationVal
 ```
 {
   "customers": [
-     {
-       "phoneNumber":"1234567",
-       "email":"y@a.com",
-       "name":"John Doe",
-       "userPoolId":"UserPoolIdVal"
-      },
-      {
-         "phoneNumber":"1234567",
-         "email":"y@b.com",
-         "name":"John Doe",
-         "userPoolId":"UserPoolIdVal"
-      }
+    {
+      "phoneNumber": "1234567",
+      "email": "x@c.com",
+      "name": "John Doe",
+      "customerId": "eEBjLmNvbQ==",
+      "userPoolId": "UserPoolIdVal"
+     },
+    {
+      "phoneNumber": "1234567",
+      "email": "y@c.com",
+      "name": "John Doe",
+      "customerId": "eUBjLmNvbQ==",
+      "userPoolId": "UserPoolIdVal"
+    }
   ]
 }
 ```
 ## Status Code
 Code | Description | Body
 ------------ | ------------- | -----------
-200 | OK | Data
+200 | OK | Data       
 400 | Bad Request | Error
 500 | Internal Server Error |Error

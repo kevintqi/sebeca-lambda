@@ -6,7 +6,7 @@
   ],
   "AttributeDefinitions": [
     { "AttributeName": "customerId", "AttributeType": "S" },
-    { "AttributeName": "orderId", "AttributeType": "S" }
+    { "AttributeName": "orderId", "AttributeType": "N" }
   ],
   "ProvisionedThroughput": {
     "ReadCapacityUnits": 5,

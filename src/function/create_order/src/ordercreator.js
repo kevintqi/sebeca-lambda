@@ -2,7 +2,6 @@ const AWS = require("my_db").AWS;
 const Table = require("my_db").Table;
 const Item = require("my_db").Item;
 const Client = require("my_db").Client;
-const uuid = require("uuid/v1");
 
 const tableParams = require("./data/ordertable.json");
 
@@ -25,8 +24,8 @@ class OrderCreator {
   _createOrder(inputData) {
     const item = new Item(tableParams.TableName);
     inputData.data.userPoolId = inputData.headers['user-pool-id'];
-    inputData.data.orderId = uuid();
     inputData.data.createdAt = Date.now();
+    inputData.data.orderId = inputData.data.createdAt;
     item.addData(inputData.data);
     return this.client.put(item).then(result => {
       return {
