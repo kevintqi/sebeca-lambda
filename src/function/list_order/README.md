@@ -1,4 +1,4 @@
-# AWS Lambda Function - List Customers
+# AWS Lambda Function - List Orders
 
 ## Sample Test Event
 ```

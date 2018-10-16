@@ -1,4 +1,4 @@
-# AWS Lambda Function - Create Job
+# AWS Lambda Function - Create Customer
 
 ## Sample Test Event
 ```
