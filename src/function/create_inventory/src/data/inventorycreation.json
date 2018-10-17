@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Inventory",
+  "description": "An inventory item",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "quantity" : {
+      "type": "integer"
+    },
+    "image" : {
+      "type":"string"
+    },
+    "desc": {
+      "type": "string"
+    }
+  },
+  "required": ["category", "name", "price", "quantity"]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "create_inventory",
+  "version": "1.0.0",
+  "description": "Create Inventory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "{}"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "my_db": "file:../../common/my_db",
+    "my_util": "file:../../common/my_util",
+    "shortid": "^2.2.13"
+  }
+}

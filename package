@@ -44,6 +44,13 @@ rm -f $DEPLOY_DIR/create_user.zip
 zip -q -r $DEPLOY_DIR/create_user.zip  .
 popd
 
+pushd src/function/create_inventory
+rm -rf node_modules
+npm install
+rm -f $DEPLOY_DIR/create_inventory.zip
+zip -q -r $DEPLOY_DIR/create_inventory.zip  .
+popd
+
 pushd deploy
 ls -l *.zip
 popd

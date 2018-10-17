@@ -1,0 +1,15 @@
+{
+  "TableName": "Inventory",
+  "KeySchema": [
+    { "AttributeName": "category", "KeyType": "HASH" },
+    { "AttributeName": "itemId", "KeyType": "RANGE" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "category", "AttributeType": "S" },
+    { "AttributeName": "itemId", "AttributeType": "S" }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
