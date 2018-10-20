@@ -11,7 +11,7 @@ class InventoryLister {
     const item = new Item('Inventory');
     item
       .addKeyConditionExpression('category = :c')
-      .withExpressionValues({ ':c': eventHandler.path.category });
+      .withExpressionValues({':c': eventHandler.path.category });
     return this.client.query(item).then(data => {
       return { items: data.Items };
     });

@@ -1,38 +1,21 @@
-const AWS = require("my_db").AWS;
-const Table = require("my_db").Table;
-const Item = require("my_db").Item;
-const Client = require("my_db").Client;
+const Creator = require('my_db').Creator;
 const btoa = require('btoa');
+const tableParams = require('./data/customertable.json');
 
-const tableParams = require("./data/customertable.json");
-
-class CustomerCreator {
+class CustomerCreator extends Creator {
   constructor() {
-    this.table = new Table(AWS, tableParams);
-    this.client = new Client(AWS);
+    super(tableParams);
   }
 
-  run(inputData) {
-    if (!this.table.created) {
-      return this.table.create().then(() => {
-        return this._createCustomer(inputData);
-      });
-    } else {
-      return this._createCustomer(inputData);
-    }
-  }
-
-  _createCustomer(inputData) {
-    const item = new Item(tableParams.TableName);
-    inputData.data.userPoolId = inputData.headers['user-pool-id'];
+  _createId(inputData) {
     inputData.data.customerId = btoa(inputData.data.email);
-    item.addData(inputData.data);
-    return this.client.put(item).then(result => {
-      return {
-        userPoolId: result.Item.userPoolId,
-        customerId: result.Item.customerId
-      };
-    });
+  }
+
+  _filterResult(result) {
+    return {
+      userPoolId: result.Item.userPoolId,
+      customerId: result.Item.customerId
+    };
   }
 }
 

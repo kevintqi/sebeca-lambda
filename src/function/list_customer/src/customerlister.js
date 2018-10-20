@@ -1,6 +1,6 @@
-const AWS = require("my_db").AWS;
-const Item = require("my_db").Item;
-const Client = require("my_db").Client;
+const AWS = require('my_db').AWS;
+const Item = require('my_db').Item;
+const Client = require('my_db').Client;
 
 class CustomerLister {
   constructor() {
@@ -8,10 +8,10 @@ class CustomerLister {
   }
 
   run(inputData, eventHandler) {
-    const item = new Item("Customer");
+    const item = new Item('Customer');
     item
-      .addKeyConditionExpression("userPoolId = :u")
-      .withExpressionValues({ ":u": inputData.headers['user-pool-id']});
+      .addKeyConditionExpression('userPoolId = :u')
+      .withExpressionValues({':u': inputData.headers['user-pool-id']});
     return this.client.query(item).then(data => {
       return { customers: data.Items };
     });

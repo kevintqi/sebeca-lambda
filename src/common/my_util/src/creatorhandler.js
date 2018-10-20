@@ -1,5 +1,5 @@
-const EventHandler = require("my_util").EventHandler;
-const Validator = require("my_util").EventValidator;
+const EventHandler = require('my_util').EventHandler;
+const Validator = require('my_util').EventValidator;
 
 class CreatorHandler {
     constructor(creator, inputDataModel) {
