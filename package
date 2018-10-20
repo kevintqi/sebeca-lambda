@@ -51,6 +51,13 @@ rm -f $DEPLOY_DIR/create_inventory.zip
 zip -q -r $DEPLOY_DIR/create_inventory.zip  .
 popd
 
+pushd src/function/list_inventory
+rm -rf node_modules
+npm install
+rm -f $DEPLOY_DIR/list_inventory.zip
+zip -q -r $DEPLOY_DIR/list_inventory.zip  .
+popd
+
 pushd deploy
 ls -l *.zip
 popd
