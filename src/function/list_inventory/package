@@ -1,0 +1,7 @@
+DEPLOY_DIR=$1
+TARGET=$DEPLOY_DIR/list_inventory.zip
+echo $TARGET
+rm -rf node_modules
+npm install
+rm -f $TARGET
+zip -q -r $TARGET  .

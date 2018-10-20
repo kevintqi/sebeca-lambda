@@ -1,62 +1,17 @@
 #!/bin/bash
 export DEPLOY_DIR=$PWD/deploy
+COMPONENT_LIST=`ls -d src/*/*`
 
-pushd src/common/my_db
-rm -rf node_modules
+pushd deploy
+rm *
 popd
 
-pushd src/common/my_util
-npm install
-popd
-
-pushd src/function/create_customer
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/create_customer.zip
-zip -q -r $DEPLOY_DIR/create_customer.zip  .
-popd
-
-pushd src/function/list_customer
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/list_customer.zip
-zip -q -r $DEPLOY_DIR/list_customer.zip  .
-popd
-
-pushd src/function/create_order
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/create_order.zip
-zip -q -r $DEPLOY_DIR/create_order.zip  .
-popd
-
-pushd src/function/list_order
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/list_order.zip
-zip -q -r $DEPLOY_DIR/list_order.zip  .
-popd
-
-pushd src/function/create_user
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/create_user.zip
-zip -q -r $DEPLOY_DIR/create_user.zip  .
-popd
-
-pushd src/function/create_inventory
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/create_inventory.zip
-zip -q -r $DEPLOY_DIR/create_inventory.zip  .
-popd
-
-pushd src/function/list_inventory
-rm -rf node_modules
-npm install
-rm -f $DEPLOY_DIR/list_inventory.zip
-zip -q -r $DEPLOY_DIR/list_inventory.zip  .
-popd
+for component in $COMPONENT_LIST
+do
+    pushd $component
+    ./package $DEPLOY_DIR
+    popd
+done
 
 pushd deploy
 ls -l *.zip
