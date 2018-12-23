@@ -1,7 +1,7 @@
 const EventHandler = require('my_util').EventHandler;
 const Validator = require('my_util').EventValidator;
 
-class CreatorHandler {
+class UpdaterHandler {
     constructor(creator, inputDataModel) {
         this.creator = creator;
         this.inputDataModel = inputDataModel;
@@ -22,4 +22,4 @@ class CreatorHandler {
     }
 }
 
-module.exports = CreatorHandler;
+module.exports = UpdaterHandler;

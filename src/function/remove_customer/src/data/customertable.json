@@ -1,0 +1,7 @@
+{
+  "TableName": "Customer",
+  "Key": {
+    "userPoolId": "", 
+    "email": ""
+   }
+}

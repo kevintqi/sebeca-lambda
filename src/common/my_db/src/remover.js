@@ -3,7 +3,7 @@ const Table = require('my_db').Table;
 const Item = require('my_db').Item;
 const Client = require('my_db').Client;
 
-class Creator {
+class Remover {
   constructor(tableParams) {
     this.tableParams = tableParams;
     this.table = new Table(AWS, this.tableParams);
@@ -12,17 +12,15 @@ class Creator {
 
   run(inputData) {
     return this.table.exist()
-          .then(() => this._create(inputData))
-          .catch(() => this.table.create()
-                       .then( () => this._create(inputData)));
+           .then(() => this._remove(inputData));
   }
 
-  _create(inputData) {
+  _remove(inputData) {
     const item = new Item(this.tableParams.TableName);
-    inputData.data.userPoolId = inputData.headers['user-pool-id'];
+    this.tableParams.Key.userPoolId = inputData.headers['user-pool-id'];
     this._createId(inputData);
-    item.addData(inputData.data);
-    return this.client.put(item).then(result => this._filterResult(result));
+    item.addKey(this.tableParams.Key);
+    return this.client.delete(item).then(result => this._filterResult(result));
   }
 
   _createId(inputData) {
@@ -30,8 +28,8 @@ class Creator {
   }
 
   _filterResult(result) {
-      throw new Error('_filterResult not implemented');
+      return {};
   }
 }
 
-module.exports = Creator;
+module.exports = Remover;

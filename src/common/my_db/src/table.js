@@ -2,19 +2,20 @@ class Table {
   constructor(AWS, params) {
     this.db = new AWS.DynamoDB();
     this.params = params;
-    this.created = false;
+  }
+
+  exist() {
+    return this.describe();
   }
 
   describe() {
-    const self = this;
     return new Promise((resolve, reject) => {
-      self.db.describeTable(
-        { TableName: self.params.TableName },
+      this.db.describeTable(
+        { TableName: this.params.TableName },
         (err, data) => {
           if (err) {
             return reject(err);
           }
-          self.created = true;
           return resolve(data);
         }
       );
@@ -22,15 +23,13 @@ class Table {
   }
 
   create() {
-    const self = this;
     return this.describe().catch(err => {
       if (err.code === "ResourceNotFoundException") {
         return new Promise((resolve, reject) => {
-          this.db.createTable(self.params, (err, data) => {
+          this.db.createTable(this.params, (err, data) => {
             if (err) {
               return reject(err);
             }
-            self.created = true;
             return resolve(data);
           });
         });
