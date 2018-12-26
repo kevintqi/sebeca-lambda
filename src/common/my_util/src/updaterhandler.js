@@ -11,14 +11,14 @@ class UpdaterHandler {
     run(event, context, callback) {
         const eventHandler = new EventHandler(event, callback);
         this.validator
-          .run(eventHandler, this.inputDataModel)
-          .then(validData => {
-            return this.creator
-              .run(validData)
-              .then(data => eventHandler.status(200).send(data))
-              .catch(err => eventHandler.status(500).send(err));
-          })
-          .catch(err => eventHandler.status(400).send(err));
+            .run(eventHandler, this.inputDataModel)
+            .then(validData => {
+                return this.creator
+                    .run(validData)
+                    .then(data => eventHandler.status(200).send(data))
+                    .catch(err => eventHandler.status(500).send(err));
+            })
+            .catch(err => eventHandler.status(400).send(err));
     }
 }
 
