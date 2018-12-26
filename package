@@ -9,6 +9,14 @@ popd
 for component in $COMPONENT_LIST
 do
     pushd $component
+    npm install
+    npm run-script eslint
+    popd
+done
+
+for component in $COMPONENT_LIST
+do
+    pushd $component
     ./package $DEPLOY_DIR
     popd
 done

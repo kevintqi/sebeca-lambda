@@ -10,8 +10,8 @@ class OrderLister {
   run(inputData, eventHandler) {
     const item = new Item('Order');
     item
-        .addKeyConditionExpression('customerId = :c')
-        .withExpressionValues({':c': eventHandler.path.customerId});
+      .addKeyConditionExpression('customerId = :c')
+      .withExpressionValues({':c': eventHandler.path.customerId});
     return this.client.query(item).then(data => {
       return { orders: data.Items };
     });

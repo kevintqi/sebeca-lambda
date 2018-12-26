@@ -2,6 +2,6 @@ DEPLOY_DIR=$1
 TARGET=$DEPLOY_DIR/create_upload_url.zip
 echo $TARGET
 rm -rf node_modules
-npm install
+npm install --only=prod
 rm -f $TARGET
 zip -q -r $TARGET  .

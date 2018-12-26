@@ -4,7 +4,8 @@
   "description": "List Orders",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint index.js src --fix"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "dependencies": {
     "my_db": "file:../../common/my_db",
     "my_util": "file:../../common/my_util"
+  },
+  "devDependencies": {
+    "eslint": "^5.11.0"
   }
 }
