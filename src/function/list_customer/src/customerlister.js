@@ -7,11 +7,11 @@ class CustomerLister {
     this.client = new Client(AWS);
   }
 
-  run(inputData, eventHandler) {
+  run(requestData) {
     const item = new Item('Customer');
     item
       .addKeyConditionExpression('userPoolId = :u')
-      .withExpressionValues({':u': inputData.headers['user-pool-id']});
+      .withExpressionValues({':u': requestData.headers['user-pool-id']});
     return this.client.query(item).then(data => {
       return { customers: data.Items };
     });

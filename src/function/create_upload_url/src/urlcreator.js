@@ -10,9 +10,9 @@ class UrlCreator {
     this.s3 = new AWS.S3();
   }
 
-  run(inputData) {
-    this.params.Key = `${inputData.data.contentType}/${inputData.data.fileName}`;
-    this.params.ContentType = inputData.data.contentType;
+  run(requestData) {
+    this.params.Key = `${requestData.body.contentType}/${requestData.body.fileName}`;
+    this.params.ContentType = requestData.body.contentType;
     return new Promise((resolve, reject) => {
       this.s3.getSignedUrl('putObject', this.params, (err, uploadUrl) => {
         if (err) {

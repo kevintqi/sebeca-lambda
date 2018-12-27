@@ -6,14 +6,15 @@ class OrderCreator extends Creator {
     super(tableParams);
   }
 
-  _createId(inputData) {
-    inputData.data.createdAt = Date.now();
-    inputData.data.orderId = inputData.data.createdAt;
+  _createData(requestData) {
+    requestData.body.createdAt = Date.now();
+    requestData.body.orderId = requestData.body.createdAt;
+    return requestData.body;
   }
 
   _filterResult(result) {
     return {
-      userPoolId: result.Item.userPoolId,
+      customerId: result.Item.customerId,
       orderId: result.Item.orderId
     };
   }

@@ -7,13 +7,14 @@ class InventoryCreator extends Creator {
     super(tableParams);
   }
 
-  _createId(inputData) {
-    inputData.data.itemId = shortId.generate();
+  _createData(requestData) {
+    requestData.body.itemId = shortId.generate();
+    return requestData.body;
   }
 
   _filterResult(result) {
     return {
-      userPoolId: result.Item.userPoolId,
+      category: result.Item.category,
       itemId: result.Item.itemId
     };
   }

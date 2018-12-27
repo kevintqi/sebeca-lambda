@@ -7,8 +7,10 @@ class CustomerCreator extends Creator {
     super(tableParams);
   }
 
-  _createId(inputData) {
-    inputData.data.customerId = btoa(inputData.data.email);
+  _createData(requestData) {
+    requestData.body.userPoolId = requestData.headers['user-pool-id'];
+    requestData.body.customerId = btoa(requestData.body.email);
+    return requestData.body;
   }
 
   _filterResult(result) {

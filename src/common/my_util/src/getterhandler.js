@@ -10,9 +10,9 @@ class GetterHandler {
   run(event, context, callback){
     const eventHandler = new EventHandler(event, callback);
     this.validator
-      .run(eventHandler)
-      .then(validData => {
-        return this.getter.run(validData, eventHandler)
+      .run(eventHandler.requestData)
+      .then(requestData => {
+        return this.getter.run(requestData)
           .then(data => eventHandler.status(200).send(data))
           .catch(err => eventHandler.status(500).send(err));
       })

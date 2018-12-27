@@ -1,5 +1,5 @@
 const Remover = require('my_db').Remover;
-const tableParams = require('./data/customertable.json');
+const tableParams = require('./data/inventorytable.json');
 
 class CustomerRemover extends Remover {
   constructor() {
@@ -7,8 +7,8 @@ class CustomerRemover extends Remover {
   }
 
   _createKey(requestData) {
-    this.tableParams.Key.userPoolId = requestData.headers['user-pool-id'];
-    this.tableParams.Key.email = requestData.body.email;
+    this.tableParams.Key.category = requestData.path.category;
+    this.tableParams.Key.itemId = requestData.body.itemId;
     return this.tableParams.Key;
   }
 }

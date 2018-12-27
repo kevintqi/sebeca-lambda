@@ -2,20 +2,14 @@ const ModelValidator = require('./modelvalidator');
 const headerSchema = require('./data/eventheader.json');
 
 class EventValidator {
-  run(eventHandler, schema) {
-    return new ModelValidator(headerSchema).run(eventHandler.headers)
+  run(requestData, schema) {
+    return new ModelValidator(headerSchema).run(requestData.headers)
       .then(() => {
         if (schema) {
-          return new ModelValidator(schema).run(eventHandler.inputData);
+          return new ModelValidator(schema).run(requestData.body);
         }
-        return eventHandler.inputData;
-      })
-      .then(() => {
-        return {
-          headers: eventHandler.headers,
-          data: eventHandler.inputData
-        };
-      });
+        return requestData;
+      }).then(() => requestData);
   }
 }
 

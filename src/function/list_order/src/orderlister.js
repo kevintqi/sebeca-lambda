@@ -7,11 +7,11 @@ class OrderLister {
     this.client = new Client(AWS);
   }
 
-  run(inputData, eventHandler) {
+  run(requestData) {
     const item = new Item('Order');
     item
       .addKeyConditionExpression('customerId = :c')
-      .withExpressionValues({':c': eventHandler.path.customerId});
+      .withExpressionValues({':c': requestData.path.customerId});
     return this.client.query(item).then(data => {
       return { orders: data.Items };
     });

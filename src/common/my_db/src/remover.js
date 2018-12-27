@@ -10,21 +10,20 @@ class Remover {
     this.client = new Client(AWS);
   }
 
-  run(inputData) {
+  run(requestData) {
     return this.table.exist()
-      .then(() => this._remove(inputData));
+      .then(() => this._remove(requestData));
   }
 
-  _remove(inputData) {
+  _remove(requestData) {
     const item = new Item(this.tableParams.TableName);
-    this.tableParams.Key.userPoolId = inputData.headers['user-pool-id'];
-    this._createId(inputData);
-    item.addKey(this.tableParams.Key);
+    const key = this._createKey(requestData);
+    item.addKey(key);
     return this.client.delete(item).then(result => this._filterResult(result));
   }
 
-  _createId(inputData) {
-    throw new Error('_createId not implemented');
+  _createKey(requestData) {
+    throw new Error('_createKey not implemented');
   }
 
   _filterResult(result) {

@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Inventory Item",
+  "description": "Remove an inventory item",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "itemId": {
+      "type": "string"
+    }
+  },
+  "required": ["itemId"]
+}

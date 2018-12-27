@@ -1,0 +1,7 @@
+{
+  "TableName": "Inventory",
+  "Key": {
+    "category": "", 
+    "itemId": ""
+   }
+}

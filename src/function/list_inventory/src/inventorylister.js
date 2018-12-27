@@ -7,11 +7,11 @@ class InventoryLister {
     this.client = new Client(AWS);
   }
 
-  run(inputData, eventHandler) {
+  run(requestData) {
     const item = new Item('Inventory');
     item
       .addKeyConditionExpression('category = :c')
-      .withExpressionValues({':c': eventHandler.path.category });
+      .withExpressionValues({':c': requestData.path.category });
     return this.client.query(item).then(data => {
       return { items: data.Items };
     });

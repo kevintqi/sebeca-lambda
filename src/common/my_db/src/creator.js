@@ -10,23 +10,22 @@ class Creator {
     this.client = new Client(AWS);
   }
 
-  run(inputData) {
+  run(requestData) {
     return this.table.exist()
-      .then(() => this._create(inputData))
+      .then(() => this._create(requestData))
       .catch(() => this.table.create()
-        .then( () => this._create(inputData)));
+        .then( () => this._create(requestData)));
   }
 
-  _create(inputData) {
+  _create(requestData) {
     const item = new Item(this.tableParams.TableName);
-    inputData.data.userPoolId = inputData.headers['user-pool-id'];
-    this._createId(inputData);
-    item.addData(inputData.data);
+    const data = this._createData(requestData);
+    item.addData(data);
     return this.client.put(item).then(result => this._filterResult(result));
   }
 
-  _createId(inputData) {
-    throw new Error('_createId not implemented');
+  _createData(requestData) {
+    throw new Error('_createData not implemented');
   }
 
   _filterResult(result) {
