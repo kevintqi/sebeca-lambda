@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "Customer",
-  "description": "A cutomer created based on request",
+  "title": "Customer Remover",
+  "description": "Remove A cutomer based on email",
   "type": "object",
   "properties": {
     "email": {

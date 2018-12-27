@@ -1,0 +1,7 @@
+{
+  "TableName": "Order",
+  "Key": {
+    "customerId": "", 
+    "orderId": 0
+   }
+}
