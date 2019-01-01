@@ -1,5 +1,5 @@
 const AWS = require('my_db').AWS;
-const Item = require('my_db').Item;
+const KeyConditionBuilder = require('my_db').KeyConditionBuilder;
 const Client = require('my_db').Client;
 
 class CustomerLister {
@@ -8,11 +8,11 @@ class CustomerLister {
   }
 
   run(requestData) {
-    const item = new Item('Customer');
-    item
-      .addKeyConditionExpression('userPoolId = :u')
-      .withExpressionValues({':u': requestData.headers['user-pool-id']});
-    return this.client.query(item).then(data => {
+    const builder = new KeyConditionBuilder('Customer');
+    builder
+      .setKeyConditionExpression('userPoolId = :u')
+      .addExpressionValue(':u', requestData.headers['user-pool-id']);
+    return this.client.query(builder.getItem()).then(data => {
       return { customers: data.Items };
     });
   }

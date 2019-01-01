@@ -1,7 +1,7 @@
-const AWS = require('my_db').AWS;
-const Table = require('my_db').Table;
-const Item = require('my_db').Item;
-const Client = require('my_db').Client;
+const AWS = require('./aws');
+const Table = require('./table');
+const DataBuilder = require('./item').DataBuilder;
+const Client = require('./client');
 
 class Creator {
   constructor(tableParams) {
@@ -18,10 +18,10 @@ class Creator {
   }
 
   _create(requestData) {
-    const item = new Item(this.tableParams.TableName);
+    const builder = new DataBuilder(this.tableParams.TableName);
     const data = this._createData(requestData);
-    item.addData(data);
-    return this.client.put(item).then(result => this._filterResult(result));
+    builder.setData(data);
+    return this.client.put(builder.getItem()).then(result => this._filterResult(result));
   }
 
   _createData(requestData) {

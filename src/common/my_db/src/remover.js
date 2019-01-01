@@ -1,7 +1,7 @@
-const AWS = require('my_db').AWS;
-const Table = require('my_db').Table;
-const Item = require('my_db').Item;
-const Client = require('my_db').Client;
+const AWS = require('./aws');
+const Table = require('./table');
+const KeyBuilder = require('./item').KeyBuilder;
+const Client = require('./client');
 
 class Remover {
   constructor(tableParams) {
@@ -16,10 +16,10 @@ class Remover {
   }
 
   _remove(requestData) {
-    const item = new Item(this.tableParams.TableName);
+    const builder = new KeyBuilder(this.tableParams.TableName);
     const key = this._createKey(requestData);
-    item.addKey(key);
-    return this.client.delete(item).then(result => this._filterResult(result));
+    builder.setKey(key);
+    return this.client.delete(builder.getItem()).then(result => this._filterResult(result));
   }
 
   _createKey(requestData) {

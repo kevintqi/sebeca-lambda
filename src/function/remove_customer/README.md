@@ -13,7 +13,7 @@
 
 ## Sample REST Request
 ### URL
-DELETE /dev/customer
+DELETE /customer
 ```
  https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```
