@@ -1,11 +1,11 @@
 {
   "TableName": "Inventory",
   "KeySchema": [
-    { "AttributeName": "category", "KeyType": "HASH" },
+    { "AttributeName": "categoryId", "KeyType": "HASH" },
     { "AttributeName": "itemId", "KeyType": "RANGE" }
   ],
   "AttributeDefinitions": [
-    { "AttributeName": "category", "AttributeType": "S" },
+    { "AttributeName": "categoryId", "AttributeType": "S" },
     { "AttributeName": "itemId", "AttributeType": "S" }
   ],
   "ProvisionedThroughput": {

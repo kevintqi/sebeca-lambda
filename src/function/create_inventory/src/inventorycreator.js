@@ -14,7 +14,7 @@ class InventoryCreator extends Creator {
 
   _filterResult(result) {
     return {
-      category: result.Item.category,
+      categoryId: result.Item.categoryId,
       itemId: result.Item.itemId
     };
   }

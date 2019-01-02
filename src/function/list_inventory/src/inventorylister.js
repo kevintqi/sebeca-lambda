@@ -10,8 +10,8 @@ class InventoryLister {
   run(requestData) {
     const builder = new KeyConditionBuilder('Inventory');
     builder
-      .setKeyConditionExpression('category = :c')
-      .addExpressionValue(':c', requestData.path.category);
+      .setKeyConditionExpression('categoryId = :c')
+      .addExpressionValue(':c', requestData.path.categoryId);
     return this.client.query(builder.getItem()).then(data => {
       return { items: data.Items };
     });

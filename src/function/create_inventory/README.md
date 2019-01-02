@@ -7,7 +7,7 @@
     "user-pool-id": "UserPoolIdVal",
     "authorization": "AuthorizationVal"
   },
-  "body": "{\"category\":\"Chair\",\"name\":\"Imperial\",\"desc\":\"red, folding legs\",\"price\": 3.15, \"quantity\": 200,\"image\": \"chairs\/eWRhpRV.jpg\"}"
+  "body": "{\"categoryId\":\"Q2hhaXI=\",\"name\":\"Imperial\",\"desc\":\"red, folding legs\",\"price\": 3.15, \"quantity\": 200,\"image\": \"chairs/eWRhpRV.jpg\"}"
 }
 ```
 
@@ -25,7 +25,7 @@ authorization:AuthorizationVal
 ### Body
 ```
 { 
-    "category": "Chair",
+    "categoryId": "Q2hhaXI=",
     "name": "Imperial",
     "quantity": 200,
     "price": 3.45,
@@ -38,7 +38,7 @@ authorization:AuthorizationVal
 ### Body
 ```
 {
-  "userPoolId": "UserPoolIdVal",
+  "categoryId": "Q2hhaXI=",
   "itemId": "u_Nrxql0j"
 }
 ```

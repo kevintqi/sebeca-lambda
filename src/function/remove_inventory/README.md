@@ -8,7 +8,7 @@
     "authorization": "AuthorizationVal"
   },
   "pathParameters": {
-    "category": "Chair"
+    "categoryId": "Q2hhaXI="
   },
   "body": "{\"itemId\":\"Phe9mzdfO\"}"
 }
@@ -16,7 +16,7 @@
 
 ## Sample REST Request
 ### URL
-DELETE /inventory/{category}
+DELETE /inventory/{categoryId}
 ```
  https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```

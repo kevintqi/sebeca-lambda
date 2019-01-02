@@ -4,7 +4,7 @@
   "description": "An inventory item",
   "type": "object",
   "properties": {
-    "category": {
+    "categoryId": {
       "type": "string"
     },
     "name": {
@@ -23,5 +23,5 @@
       "type": "string"
     }
   },
-  "required": ["category", "name", "price", "quantity"]
+  "required": ["categoryId", "name", "price", "quantity"]
 }

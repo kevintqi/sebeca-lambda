@@ -4,7 +4,7 @@
   "description": "Remove an inventory item",
   "type": "object",
   "properties": {
-    "category": {
+    "categoryId": {
       "type": "string"
     },
     "itemId": {

@@ -7,13 +7,13 @@
     "user-pool-id": "UserPoolIdVal",
     "authorization": "AuthorizationVal"
   }
-  "pathParameters": {"category": "Chair"}
+  "pathParameters": {"categoryId": "Q2hhaXI="}
 }
 ```
 
 ## Sample REST Request
 ### URL
-GET /inventory/{category}
+GET /inventory/{categoryId}
 ```
 https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```
@@ -30,23 +30,21 @@ authorization:AuthorizationVal
   "items": [
     {
       "quantity": 200,
-      "image": "chairs/itemId.jpg",
-      "userPoolId": "UserPoolIdVal",
-      "category": "Chair",
-      "itemId": "Phe9mzdfO",
-      "price": 3.45,
+      "image": "chairs/eWRhpRV.jpg",
+      "categoryId": "Q2hhaXI=",
+      "itemId": "PMZ0y5LtI",
+      "price": 3.15,
       "name": "Imperial",
-      "desc": "brown top, folding legs"
+      "desc": "red, folding legs"
     },
     {
       "quantity": 200,
-      "image": "chairs/itemId.jpg",
-      "userPoolId": "UserPoolIdVal",
-      "category": "Chair",
-      "itemId": "u_Nrxql0j",
-      "price": 3.45,
+      "image": "chairs/eWRhpRV.jpg",
+      "categoryId": "Q2hhaXI=",
+      "itemId": "dSvwXOoJV",
+      "price": 3.15,
       "name": "Imperial",
-      "desc": "brown top, folding legs"
+      "desc": "red, folding legs"
     }
   ]
 }
