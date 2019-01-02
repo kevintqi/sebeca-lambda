@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "Category",
+  "description": "Category",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    }
+  },
+  "required": ["category"]
+}

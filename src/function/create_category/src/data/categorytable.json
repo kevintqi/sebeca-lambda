@@ -1,0 +1,13 @@
+{
+  "TableName": "Category",
+  "KeySchema": [
+    { "AttributeName": "categoryId", "KeyType": "HASH" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "categoryId", "AttributeType": "S" }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}

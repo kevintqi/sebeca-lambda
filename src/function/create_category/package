@@ -1,0 +1,7 @@
+DEPLOY_DIR=$1
+TARGET=$DEPLOY_DIR/create_category.zip
+echo $TARGET
+rm -rf node_modules
+npm install --only=prod
+rm -f $TARGET
+zip -q -r $TARGET  .
