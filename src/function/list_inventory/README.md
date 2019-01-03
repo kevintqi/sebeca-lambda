@@ -13,7 +13,8 @@
 
 ## Sample REST Request
 ### URL
-GET /inventory/{categoryId}
+GET /inventory
+GET /inventory/{categoryId} 
 ```
 https://cq7lc4v7id.execute-api.us-west-2.amazonaws.com/dev
 ```

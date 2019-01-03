@@ -7,7 +7,7 @@ class CustomerRemover extends Remover {
   }
 
   _createKey(requestData) {
-    this.tableParams.Key.categoryId = requestData.path.categoryId;
+    this.tableParams.Key.categoryId = requestData.body.categoryId;
     this.tableParams.Key.itemId = requestData.body.itemId;
     return this.tableParams.Key;
   }
