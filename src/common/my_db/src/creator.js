@@ -5,15 +5,17 @@ const Client = require('./client');
 
 class Creator {
   constructor(tableParams) {
+    this.tableName = tableParams.TableName;
     this.tableParams = tableParams;
-    this.table = new Table(AWS, this.tableParams);
     this.client = new Client(AWS);
   }
 
   run(requestData) {
-    return this.table.exist()
+    this.tableParams.TableName = `${requestData.headers['user-pool-id']}_${this.tableName}`;
+    const table = new Table(AWS, this.tableParams);
+    return table.exist()
       .then(() => this._create(requestData))
-      .catch(() => this.table.create()
+      .catch(() => table.create()
         .then( () => this._create(requestData)));
   }
 

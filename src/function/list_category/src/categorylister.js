@@ -8,7 +8,8 @@ class CategoryLister {
   }
 
   run(requestData) {
-    const builder = new FilterBuilder('Category');
+    const tableName = `${requestData.headers['user-pool-id']}_Category`;
+    const builder = new FilterBuilder(tableName);
     return this.client.scan(builder.getItem()).then(data => {
       return { items: data.Items };
     });

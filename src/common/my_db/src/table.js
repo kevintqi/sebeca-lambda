@@ -30,7 +30,14 @@ class Table {
             if (err) {
               return reject(err);
             }
-            return resolve(data);
+            this.db.waitFor('tableExists', 
+              { TableName: this.params.TableName }, 
+              (e, d) => {
+                if (e) {
+                  return reject(e);
+                }
+                return resolve(data);
+              });
           });
         });
       }

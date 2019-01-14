@@ -8,7 +8,8 @@ class CustomerLister {
   }
 
   run(requestData) {
-    const builder = new KeyConditionBuilder('Customer');
+    const tableName = `${requestData.headers['user-pool-id']}_Customer`;
+    const builder = new KeyConditionBuilder(tableName);
     builder
       .setKeyConditionExpression('userPoolId = :u')
       .addExpressionValue(':u', requestData.headers['user-pool-id']);
